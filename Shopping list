@@ -1,0 +1,20 @@
+let count = 0;
+const fruitSaladItems = [];
+let ingredient=true;
+
+while (ingredient && count<22) {
+  count++
+  ingredient = prompt("Enter the fruit salad ingredients");
+  if (ingredient) {
+    const price = parseFloat(prompt("Enter the price"));
+    fruitSaladItems.push({ ingredient, price });
+  }
+}
+
+fruitSaladItems.sort((a, b) => a.price - b.price);
+
+const descriptions = fruitSaladItems.map(
+  (item) => `${item.ingredient} €${item.price.toFixed(2)}`
+);
+
+console.log(descriptions.join(", "));
